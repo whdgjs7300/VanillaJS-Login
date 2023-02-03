@@ -1,17 +1,13 @@
-const loginForm = document.getElementById("login-form");
+const loginForm = document.querySelector("#login-form");
 const loginInput = loginForm.querySelector("#login-form input");
-const loginButton = loginForm.querySelector("#login-form button");
 
-function onLoginBtnClick() {
+// form submit은 새로고침이 일어나는 기본동작
+
+function onLoginSubmit(e) {
     const username = loginInput.value;
-    if (username === "" ) {
-        alert("이름을 입력해주세요");
-    } else if(username.length > 15) {
-        alert("이름이 너무 길어요");
-    }
-    
+    // 새로고침을 막아 데이터가 유지되도록 함
+    e.preventDefault();
 }
 
+loginForm.addEventListener("submit", onLoginSubmit);
 
-
-loginButton.addEventListener("click", onLoginBtnClick);

@@ -13,17 +13,18 @@ function onLoginSubmit(e) {
     // 로컬스토리지에 유저네임 저장
     localStorage.setItem("username", username);
     loginForm.classList.add(HIDDEN_CLASSNAME);
-    paintGreetings(username);
+    paintGreetings();
 }
-// 그리팅을 보여주는 함수(h1)
-function paintGreetings(username) {
+// 그리팅을 보여주는 함수(h1) = 화면에 텍스트만 보여주는 함수
+function paintGreetings() {
+    const username = localStorage.getItem("username");
     greeting.classList.remove(HIDDEN_CLASSNAME);
     greeting.innerHTML = `Hello ${username}`;
 }
 
 
 
-loginForm.addEventListener("submit", onLoginSubmit);
+
 // 로컬스토리지안에 유저네임이 있을때, 없을 때
 const savedUsername = localStorage.getItem("username");
 
@@ -33,5 +34,5 @@ if(savedUsername === null) {
     loginForm.addEventListener("submit", onLoginSubmit);
 } else {
     // 그리팅을 보여줌 (h1)
-    paintGreetings(savedUsername);
+    paintGreetings();
 }

@@ -13,13 +13,25 @@ function onLoginSubmit(e) {
     // 로컬스토리지에 유저네임 저장
     localStorage.setItem("username", username);
     loginForm.classList.add(HIDDEN_CLASSNAME);
-    greeting.innerHTML = `Hello ${username}`;
+    paintGreetings(username);
+}
+// 그리팅을 보여주는 함수(h1)
+function paintGreetings(username) {
     greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.innerHTML = `Hello ${username}`;
 }
 
-function handleclick(e) {
-    // 브라우저 기본동작을 막음
-    e.preventDefault();
-}
+
 
 loginForm.addEventListener("submit", onLoginSubmit);
+// 로컬스토리지안에 유저네임이 있을때, 없을 때
+const savedUsername = localStorage.getItem("username");
+
+if(savedUsername === null) {
+    // 폼 화면을 보여줌
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+    // 그리팅을 보여줌 (h1)
+    paintGreetings(savedUsername);
+}

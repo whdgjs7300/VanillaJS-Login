@@ -58,4 +58,4 @@ if(savedTodos !== null) {
     parsedTodos.forEach(paintTodo);
 }
 
-// fillter item을 제외하고 새 배열을 만듬
+

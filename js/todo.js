@@ -36,3 +36,14 @@ function handleTodoSubmit(e) {
 }
 
 todoForm.addEventListener("submit", handleTodoSubmit);
+
+
+// parse는 다시 문자열을 배열형식으로 변환
+const savedTodos = JSON.parse(localStorage.getItem("todos"));
+
+if(savedTodos !== null) {
+    const parsedTodos = JSON.parse(savedTodos);
+    parsedTodos.forEach((item)=>{
+        console.log(item);
+    });
+}

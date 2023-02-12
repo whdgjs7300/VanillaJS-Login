@@ -11,7 +11,12 @@ function saveTodos() {
 }
 
 function deleteTodo(e) {
-    e.target.parentElement.remove();
+    const li = e.target.parentElement;
+    li.remove();
+    todos = todos.filter((item)=>{
+        return item.id !== parseInt(li.id);
+    })
+    saveTodos();
 }
 
 function paintTodo(newTodo) {
@@ -52,3 +57,5 @@ if(savedTodos !== null) {
     todos = parsedTodos;
     parsedTodos.forEach(paintTodo);
 }
+
+// fillter item을 제외하고 새 배열을 만듬

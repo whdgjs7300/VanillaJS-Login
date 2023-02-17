@@ -1,9 +1,11 @@
-const todoForm = document.querySelector("#todo-form");
+let todoForm = document.querySelector("#todo-form");
 const todoInput = todoForm.querySelector("#todo-form input");
 const todoList = document.querySelector("#todo-list");
 
 const TODOS_KEY = "todos";
 let todos = [];
+
+
 
 function saveTodos() {
     // stringify 배열이나 오브젝트를 문자열로 반환함

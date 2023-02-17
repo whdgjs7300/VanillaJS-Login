@@ -14,6 +14,8 @@ function onLoginSubmit(e) {
     // 로컬스토리지에 유저네임 저장
     localStorage.setItem("username", username);
     loginForm.classList.add(HIDDEN_CLASSNAME);
+    // 로그인 되었을 때 투두폼 보임
+    todoForm.classList.remove(HIDDEN_CLASSNAME);
     paintGreetings();
 }
 // 그리팅을 보여주는 함수(h1) = 화면에 텍스트만 보여주는 함수

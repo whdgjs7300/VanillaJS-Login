@@ -53,16 +53,9 @@ button{
     font-size: 22px;
 }
 
-#login-form {
-    margin-top: 250px;
-    
-}
-#login-form input::placeholder {
-    color: black;
-}
-
-#todo-form input::placeholder {
-    color: black;
+.form,
+.greetings {
+    display: none;
 }
 
 .showing{

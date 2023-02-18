@@ -60,11 +60,11 @@ button{
     
 }
 #login-form input::placeholder {
-    color: black;
+    color: white;
 }
 
 #todo-form input::placeholder {
-    color: black;
+    color: white;
 }
 
 .showing{

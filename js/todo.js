@@ -1,5 +1,5 @@
-let todoForm = document.querySelector("#todo-form");
-const todoInput = todoForm.querySelector("#todo-form input");
+const todoForm = document.querySelector("#todo-form");
+let todoInput = todoForm.querySelector("#todo-form input");
 const todoList = document.querySelector("#todo-list");
 
 const TODOS_KEY = "todos";
@@ -35,6 +35,8 @@ function paintTodo(newTodo) {
 }
 
 
+
+
 function handleTodoSubmit(e) {
     e.preventDefault();
     const newTodo = todoInput.value;
@@ -58,6 +60,7 @@ if(savedTodos !== null) {
     const parsedTodos = JSON.parse(savedTodos);
     todos = parsedTodos;
     parsedTodos.forEach(paintTodo);
+    
 }
 
 

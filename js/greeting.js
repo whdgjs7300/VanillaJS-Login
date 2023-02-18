@@ -1,3 +1,5 @@
+
+let todoInput2 = document.querySelector("#todo-form input");
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
@@ -15,14 +17,16 @@ function onLoginSubmit(e) {
     localStorage.setItem("username", username);
     loginForm.classList.add(HIDDEN_CLASSNAME);
     paintGreetings();
+    
 }
 // 그리팅을 보여주는 함수(h1) = 화면에 텍스트만 보여주는 함수
 function paintGreetings() {
     const username = localStorage.getItem("username");
     greeting.classList.remove(HIDDEN_CLASSNAME);
     greeting.innerHTML = `Hello ${username}`;
+    // 유저네임이 로컬스토리지에 있을 때  투두 폼 보임
+    todoInput2.classList.remove(HIDDEN_CLASSNAME);
 }
-
 
 
 
@@ -30,11 +34,15 @@ function paintGreetings() {
 const savedUsername = localStorage.getItem("username");
 
 if(savedUsername === null) {
+    
     // 폼 화면을 보여줌
     loginForm.classList.remove(HIDDEN_CLASSNAME);
     loginForm.addEventListener("submit", onLoginSubmit);
     
+    
 } else {
+    
     // 그리팅을 보여줌 (h1)
     paintGreetings();
+    
 }
